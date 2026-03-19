@@ -1,65 +1,61 @@
-import Image from "next/image";
+'use client';
+
+import {
+  ClipboardDocumentListIcon,
+  HeartIcon,
+  UserPlusIcon,
+} from '@heroicons/react/24/outline';
+import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className='flex items-center justify-center min-h-screen bg-[#f8fafc] p-6'>
+      <div className='bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-slate-100 rounded-[2.5rem] p-10 text-center w-full max-w-md relative overflow-hidden'>
+        <div className='absolute -top-10 -right-10 w-32 h-32 bg-blue-50 rounded-full blur-3xl' />
+        <div className='absolute -bottom-10 -left-10 w-32 h-32 bg-teal-50 rounded-full blur-3xl' />
+
+        <div className='relative mb-8'>
+          <div className='bg-gradient-to-br from-blue-600 to-teal-500 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-100'>
+            <HeartIcon className='w-9 h-9 text-white' />
+          </div>
+          <h1 className='text-2xl font-black text-slate-800 tracking-tight'>
+            CareStream <span className='text-blue-600'>Portal</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className='text-slate-400 text-sm mt-1 uppercase font-bold tracking-[0.2em]'>
+            Hospital Management
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className='flex flex-col gap-4 relative'>
+          <Link href='/patient' className='group'>
+            <div className='w-full p-4 rounded-2xl bg-white border-2 border-slate-50 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-50 transition-all duration-300 flex items-center gap-4 text-left group-active:scale-95'>
+              <div className='bg-blue-50 p-3 rounded-xl group-hover:bg-blue-600 transition-colors'>
+                <UserPlusIcon className='w-6 h-6 text-blue-600 group-hover:text-white' />
+              </div>
+              <div>
+                <h2 className='font-bold text-slate-700'>New Patient</h2>
+                <p className='text-xs text-slate-400'>Register a new record</p>
+              </div>
+            </div>
+          </Link>
+
+          <Link href='/staff' className='group'>
+            <div className='w-full p-4 rounded-2xl bg-white border-2 border-slate-50 hover:border-teal-500 hover:shadow-xl hover:shadow-teal-50 transition-all duration-300 flex items-center gap-4 text-left group-active:scale-95'>
+              <div className='bg-teal-50 p-3 rounded-xl group-hover:bg-teal-600 transition-colors'>
+                <ClipboardDocumentListIcon className='w-6 h-6 text-teal-600 group-hover:text-white' />
+              </div>
+              <div>
+                <h2 className='font-bold text-slate-700'>Staff Dashboard</h2>
+                <p className='text-xs text-slate-400'>Monitor real-time data</p>
+              </div>
+            </div>
+          </Link>
         </div>
-      </main>
-    </div>
+
+        <p className='mt-10 text-[11px] text-slate-400 font-medium'>
+          © 2026 CareStream Medical Group. All rights reserved.
+        </p>
+      </div>
+    </main>
   );
 }
