@@ -136,7 +136,7 @@ export default function StaffPage() {
               <div className='p-6'>
                 <div className='mb-4'>
                   <h2 className='text-lg font-bold text-slate-800 group-hover:text-blue-600 transition-colors'>
-                    {p.first_name} {p.last_name}
+                    {p.firstName} {p.lastName}
                   </h2>
                   <div className='flex items-center text-xs text-slate-400 mt-1'>
                     <span
@@ -201,10 +201,10 @@ export default function StaffPage() {
                     </span>
                   </div>
                   <p className='text-sm font-bold text-slate-700'>
-                    {p.emergency_name || '-'}
+                    {p.emergencyName || '-'}
                   </p>
                   <p className='text-xs text-slate-500'>
-                    {p.emergency_relation || '-'}
+                    {p.emergencyRelation || '-'}
                   </p>
                 </div>
               </div>
