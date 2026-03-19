@@ -10,10 +10,10 @@ import {
 } from '@heroicons/react/24/outline';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { FormProps } from '../../src/utils/propType';
+import { FormDBProps } from '../../src/utils/propType';
 import { supabase } from '../lib/supabase';
 
-interface PatientDashboardProps extends FormProps {
+interface PatientDashboardProps extends FormDBProps {
   isNew?: boolean;
   id?: string;
 }
@@ -62,6 +62,8 @@ export default function StaffPage() {
       supabase.removeChannel(channel);
     };
   }, []);
+
+  console.log('patients', patients);
 
   return (
     <main className='min-h-screen bg-[#f8fafc] p-8 pt-16 relative'>
@@ -136,7 +138,7 @@ export default function StaffPage() {
               <div className='p-6'>
                 <div className='mb-4'>
                   <h2 className='text-lg font-bold text-slate-800 group-hover:text-blue-600 transition-colors'>
-                    {p.firstName} {p.lastName}
+                    {p.first_name} {p.last_name}
                   </h2>
                   <div className='flex items-center text-xs text-slate-400 mt-1'>
                     <span
@@ -201,10 +203,10 @@ export default function StaffPage() {
                     </span>
                   </div>
                   <p className='text-sm font-bold text-slate-700'>
-                    {p.emergencyName || '-'}
+                    {p.emergency_name || '-'}
                   </p>
                   <p className='text-xs text-slate-500'>
-                    {p.emergencyRelation || '-'}
+                    {p.emergency_relation || '-'}
                   </p>
                 </div>
               </div>
